@@ -1,5 +1,15 @@
 <template>
-    <div>
-     <h1>影片</h1>   
+    <div>  
+        <FilmListTopNav></FilmListTopNav>
+        <router-view></router-view>
     </div>
 </template>
+
+<script>
+import FilmListTopNav from '@/components/FilmListTopNav'
+export default {
+    components:{
+        FilmListTopNav,
+    }
+}
+</script>
