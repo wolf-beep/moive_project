@@ -7,6 +7,9 @@ Vue.use(VueRouter)
 import centerRouter from './routes/center'
 import cinemaRouter from './routes/cinema'
 import filmRouter from './routes/film'
+import detailRouter from './routes/detail'
+import photosRouter from './routes/photos'
+import cityRouter from './routes/city'
 
 const routes = [
   {
@@ -16,7 +19,10 @@ const routes = [
   },
   centerRouter,
   cinemaRouter,
-  filmRouter
+  filmRouter,
+  detailRouter,
+  photosRouter,
+  cityRouter
 ]
 
 const router = new VueRouter({

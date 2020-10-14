@@ -26,15 +26,15 @@ export default {
 <style lang="scss" scoped>
 .nav {
     position: fixed;
-    bottom: 0;
+    bottom: -1px;
     left: 0;
     border-top: 1px solid #ccc;
     height: 50px;
     text-align: center;
-    background: #fff;
+    background:#fff;
     color: #7a7e83;
     width: 100%;
-
+    z-index: 999;
     ul {
         display: flex;
         align-items: center;
