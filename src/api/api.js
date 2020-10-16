@@ -7,33 +7,41 @@ import{
     cinemaListUri,
     cinemaListOneUri,
     cityListUri,
+    loginUri,
+    centerUri,
 }from '@/config/url'
 // 请求正在热映列表数据
 export const nowPlayingListData = (page) =>{
+    http.defaults.headers.authorization=""
     http.defaults.headers.info = "film";
     return http.get(nowPlayingListUri + page)
 }
 // 请求即将上映列表数据
 export const comingSoonListData = (page) =>{
+    http.defaults.headers.authorization=""
     http.defaults.headers.info = "film";
     return http.get(comingSoonListUri + page)
 }
 // 请求电影详情的数据
 export const detailListData = (filmId) =>{
+    http.defaults.headers.authorization=""
     http.defaults.headers.info = "info";
     return http.get(detailListUri + filmId);
 }
 // 影院电影详情数据
 export const cinemaListData = () =>{
+    http.defaults.headers.authorization=""
     http.defaults.headers.info = "cinema";
     return http.get(cinemaListUri)
 }
 export const cinemaListOneData = () =>{
+    http.defaults.headers.authorization=""
     http.defaults.headers.info = "one";
     return http.get(cinemaListOneUri)
 }
 // 城市信息详情数据
 export const cityListData = async()=>{
+    http.defaults.headers.authorization=""
     http.defaults.headers.info = "city";
     let ret = await http.get(cityListUri)
     // 定义基本数据
@@ -58,4 +66,20 @@ export const cityListData = async()=>{
         
     })
     return Promise.resolve([dataList,indexList])
+}
+// 获取登录页面
+export const loginData = (data) =>{
+    http.defaults.headers.authorization=""
+    return http.post(loginUri,data)
+}
+
+export const userInfo = (_token)=>{
+    http.defaults.headers.authorization = _token
+    // http.interceptors.response.use(function(response){
+    //     response.data.user_info.gender = response.data.user_info.gender?"女":"男";
+    //     return response
+    // },function(error){
+
+    // })
+    return http.get(centerUri)
 }

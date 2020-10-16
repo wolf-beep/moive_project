@@ -81,7 +81,9 @@ export default {
         this.cinemaOne = res.data.data[0] ;
 
         var _this = this;
-		getLocation();
+        if(this.city == '地球' || this.city == undefined){
+            getLocation();
+        }
 		function getLocation() {
 			if (navigator.geolocation) {
 				navigator.geolocation.getCurrentPosition(geoSuccess, geoError);
@@ -129,7 +131,7 @@ export default {
     methods:{
 
         gocity:function(){
-            this.$router.push({path:'city'})
+            this.$router.push({path:'city'}) 
         },
     },
     updated() {

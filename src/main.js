@@ -2,6 +2,12 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 
+// 引入element ui 
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+Vue.use(ElementUI);
+
+
 Vue.config.productionTip = false
 
 // 使用懒加载
@@ -15,6 +21,13 @@ Vue.prototype.eventBus = new Vue();
 
 // 导入vuex的store对象
 import store from '@/store/vuex'
+
+// 同步localStorage数据到vuex
+let _token = localStorage.getItem("_token")
+if(_token){
+  store.commit('updatedToken',_token)
+}
+
 
 new Vue({
   store,

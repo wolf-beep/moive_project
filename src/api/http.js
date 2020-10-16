@@ -19,9 +19,15 @@ axios.interceptors.request.use(
         else if("one" == info){
             host = "mall.cfg.cinema.banners"
         }
-        config.headers = {
-            "X-Client-Info":'{"a":"3000","ch":"1002","v":"5.0.4","e":"1598087896889693885431809","bc":"310100"}',
-            "X-Host": host,
+        if(config.headers.authorization){
+            config.headers = {
+                "authorization":config.headers.authorization
+            }
+        }else{
+            config.headers = {
+                "X-Client-Info":'{"a":"3000","ch":"1002","v":"5.0.4","e":"1598087896889693885431809","bc":"310100"}',
+                "X-Host": host,
+            }
         }
         return config
     },
