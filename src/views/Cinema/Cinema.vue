@@ -3,7 +3,7 @@
         <header class="header">
              <div class="left">
                  <div @click="gocity" class="city" data-enter-time="1602497043" data-click-fun="track_f_962415">
-                    <span>{{city}}</span> 
+                    <span>{{city1}}</span> 
                     <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAJCAMAAAAIAYw9AAAAOVBMVEVHcEwZGhsZGxsZGhskJCQaGhwbGxsZHR0ZGhsZGhsZGhsZGhsZHBwaGhsaGhwZGxsaGh0bGxsZGhsAwt9XAAAAEnRSTlMA5Z7pB2scPfrK6NJskn6fcnH7htMrAAAAVElEQVQI11XNOQKAIBAEwQEXl0NQ+/+PNfDucIIabaGbnqyHXQHKfC9zgaABVD8Xr8CQlgw5SVLKkBdJ8gmIZhGY/BUoha9qKwDEz/fJJP3y1i5GB2jVA/F2X5USAAAAAElFTkSuQmCC" width="6px" height="3px">
                 </div>
             </div> 
@@ -36,14 +36,14 @@
         </div>
         <div class="scroll" :style="{height:height + 'px'}">
            <div>
-                <div class="juan">
+                <div class="juan" v-if="cinemaOne">
             <div class="top">
                 <p>{{cinemaOne.masterTitle}}</p>
                 <p>影院卷</p>
             </div>
             <div>{{cinemaOne.name}}</div>
         </div>
-        <div class="cinemaList" v-for="(item,index) in cinemas" :key="index">
+        <div class="cinemaList" v-for="(item,index) in cinemas" :key="index" @click="goDetail(item.cinemaId)">
             <div class="up">
                 <p>{{item.name}}</p>
                 <p>￥{{item.lowPrice / 100}}起</p>
@@ -71,14 +71,25 @@ export default {
             cinemaOne:[],
             bs:null,
             height:0,
+            city1:'',
         }
     },
     async  mounted() {
+        let clickName = localStorage.getItem('city')
+        if(clickName == null){
+            this.city1 = this.city
+        }else{
+            this.city1 = clickName
+        }
+
         let ret = await cinemaListData();
         this.cinemas = ret.data.data.cinemas;
         
         let res = await cinemaListOneData();
         this.cinemaOne = res.data.data[0] ;
+
+        console.log(this.cinemas);
+        
 
         var _this = this;
         if(this.city == '地球' || this.city == undefined){
@@ -121,7 +132,7 @@ export default {
 					break;
 			}
         }
-    this.height = document.documentElement.clientHeight - 150
+    this.height = document.documentElement.clientHeight - 75
         
 
     },
@@ -133,24 +144,11 @@ export default {
         gocity:function(){
             this.$router.push({path:'city'}) 
         },
+        goDetail:function(cinemaId){
+            localStorage.setItem('cinemaIdData',cinemaId)
+            this.$router.push({path:'cinemaDetail'})
+        }
     },
-    updated() {
-        this.bs = new BScroll('.scroll',{
-        pullUpLoad: true,
-        pullDownRefresh: true,
-        click: true
-    });
-    this.bs.on('pullingUp',()=>{
-        // 获取数据
-        this.getData()
-        this.bs.finishPullUp()
-    });
-    this.bs.on('pullingDown',()=>{
-        // 获取数据
-        this.getData()
-        this.bs.finishPullDown()
-    });
-   },
 }
 </script>
 
@@ -202,6 +200,9 @@ export default {
             }
         }
     }
+}
+.scroll{
+ overflow-x: hidden;
 }
 .juan{
     padding: 10px;

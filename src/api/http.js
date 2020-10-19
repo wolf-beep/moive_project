@@ -18,6 +18,10 @@ axios.interceptors.request.use(
         }
         else if("one" == info){
             host = "mall.cfg.cinema.banners"
+        }else if("cinemaDetail" == info){
+            host = "mall.film-ticket.cinema.info"
+        }else if("cinemaDetailtwo"){
+            host = "mall.film-ticket.film.cinema-show-film"
         }
         if(config.headers.authorization){
             config.headers = {

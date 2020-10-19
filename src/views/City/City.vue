@@ -1,8 +1,14 @@
 <template>
-    <div>
+    <div class="box">
         <div class="header">
-                <i style="font-size: 19px; font-style:normal" @click="goba">X</i>
-            <div class="title">当前城市 - </div>
+            <div class="left">
+                <van-icon
+                    class="icon"
+                    name="cross"
+                    @click="goba()"
+                />
+            </div>
+            <div class="title">当前城市 - {{position}}</div>
         </div>
         <div class="search-city-input">
             <div class="input-wrap">
@@ -14,30 +20,79 @@
                 />
             </div>
         </div>
-        <van-index-bar :index-list="indexList" highlight-color="#ff0000">
-            <template v-for="item in dataList">
-                <van-index-anchor :index="item.index" :key="item.index" style="background:#eee"></van-index-anchor>
-                <van-cell @click="chooseCity(sub.name)" v-for="(sub,key) in item.data" :title="sub.name" :key="key" />
-            </template>
-        </van-index-bar>
+
+        <div class="list-parents">
+            <van-index-bar
+                :index-list="indexList"
+                style="margin-top:93px"
+                class="list"
+            >
+                <div class="recommend-city">
+                    <div class="gprs-city">
+                        <div class="city-index-title">
+                            GPS定位你所在城市
+                        </div>
+                        <ul class="city-index-detail cleanfix">
+                            <li class="city-item-detail city-item-detail-gprs">
+                                <div class="city-item-text">
+                                    {{ position }}
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="hot-city">
+                        <div class="city-index-title">热门城市</div>
+                        <ul class="city-index-detail cleanfix">
+                            <li class="city-item-detail">
+                                <div class="city-item-text">北京</div>
+                            </li>
+                            <li class="city-item-detail">
+                                <div class="city-item-text">上海</div>
+                            </li>
+                            <li class="city-item-detail">
+                                <div class="city-item-text">广州</div>
+                            </li>
+                            <li class="city-item-detail">
+                                <div class="city-item-text">深圳</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <template v-for="(item, index) in dataList">
+                    <van-index-anchor
+                        style="background:#F4F4F4"
+                        :index="item.index"
+                        :key="index"
+                    />
+                    <van-cell
+                        v-for="(v, k) in item.data"
+                        :title="v.name"
+                        :key="k"
+                        @click="chooseCity(v.name, v.cityId)"
+                    />
+                </template>
+            </van-index-bar>
+        </div>
     </div>
 </template>
 
 <script>
 import {cityListData} from '@/api/api' 
 import Vue from 'vue';
-import {IndexBar, IndexAnchor, Cell} from 'vant';
+import {IndexBar, IndexAnchor, Cell,Icon} from 'vant';
 import "vant/lib/index.css"
 // import {mapMutations} from 'vuex'
 Vue.use(IndexBar);
 Vue.use(IndexAnchor);
 Vue.use(Cell);
+Vue.use(Icon)
 export default {
     data() {
         return {
             dataList:[],
             indexList:[],
             address:'',
+            position:'地球',
         }
     },
     
@@ -54,8 +109,11 @@ export default {
     },
      methods: {
         // 获取选择的城市名称
-        chooseCity: function(city){
-            console.log(city)
+        chooseCity: function(city, cityId){
+            console.log(city,cityId)
+            
+            localStorage.setItem('city',city)
+            localStorage.setItem('cityId',cityId)
             this.$router.go(-1)
             // 将数据写入vuex中
             this.$store.commit('setCity',city)
@@ -69,17 +127,67 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    .header{
+.list-parents {
+    overflow-x: hidden;
+}
+.box {
+    .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 44px;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
         display: flex;
-        padding: 0 10px;
-        height: 50px;
-        align-items: center;
-        .title{
-            width: 100%;
+        z-index: 999;
+        background-color: #fff;
+
+        .left {
+            width: 14%;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+
+            .city-list .header i {
+                display: block;
+                font-size: 23px;
+            }
+
+            .icon {
+                font-size: 22px;
+                margin-left: 20px;
+                color: #929293;
+            }
+        }
+        .title {
+            width: 72%;
             text-align: center;
+            font-size: 17px;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #191a1b;
+        }
+        ::after {
+            content: ' ';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            height: 1px;
+            border-bottom: 1px solid #ededed;
+            color: #ededed;
+            transform-origin: 0 100%;
+            transform: scaleY(0.5);
         }
     }
-        .search-city-input {
+    .search-city-input {
         z-index: 2000;
         width: 100vw;
         padding: 9.5px 15px;
@@ -119,4 +227,45 @@ export default {
             }
         }
     }
+    .list {
+        .recommend-city {
+            background-color: #fff;
+            padding-left: 15px;
+            padding-top: 15px;
+
+            .city-index-title {
+                font-size: 13px;
+                color: #797d82;
+                margin-bottom: 10px;
+            }
+            .city-index-detail {
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: flex;
+                justify-content: flex-start;
+                align-content: center;
+                flex-wrap: wrap;
+
+                .city-item-detail {
+                    width: calc((100vw - 33px) / 3);
+                    text-align: center;
+                    padding-bottom: 15px;
+                    box-sizing: border-box;
+                    float: left;
+
+                    .city-item-text {
+                        height: 30px;
+                        background-color: #f4f4f4;
+                        line-height: 30px;
+                        border-radius: 3px;
+                        box-sizing: border-box;
+                        margin: 0 7.5px;
+                        font-size: 14px;
+                        color: #191a1b;
+                    }
+                }
+            }
+        }
+    }
+}
 </style>

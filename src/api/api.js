@@ -9,6 +9,8 @@ import{
     cityListUri,
     loginUri,
     centerUri,
+    cinemaDetailuri,
+    cinemaDetailtwouri,
 }from '@/config/url'
 // 请求正在热映列表数据
 export const nowPlayingListData = (page) =>{
@@ -32,12 +34,14 @@ export const detailListData = (filmId) =>{
 export const cinemaListData = () =>{
     http.defaults.headers.authorization=""
     http.defaults.headers.info = "cinema";
-    return http.get(cinemaListUri)
+    let cityId = localStorage.getItem('cityId')
+    return http.get(cinemaListUri + cityId)
 }
 export const cinemaListOneData = () =>{
     http.defaults.headers.authorization=""
     http.defaults.headers.info = "one";
-    return http.get(cinemaListOneUri)
+    let cityId = localStorage.getItem('cityId')
+    return http.get(cinemaListOneUri + cityId)
 }
 // 城市信息详情数据
 export const cityListData = async()=>{
@@ -82,4 +86,17 @@ export const userInfo = (_token)=>{
 
     // })
     return http.get(centerUri)
+}
+
+export const cinemaDetail = () =>{
+    http.defaults.headers.authorization=""
+    http.defaults.headers.info = "cinemaDetail";
+    let cinemaId = localStorage.getItem('cinemaIdData')
+    return http.get(cinemaDetailuri + cinemaId)
+}
+export const cinemaDetailtwo = () =>{
+    http.defaults.headers.authorization=""
+    http.defaults.headers.info = "cinemaDetailtwo";
+    let cinemaId = localStorage.getItem('cinemaIdData')
+    return http.get(cinemaDetailtwouri + cinemaId)
 }
