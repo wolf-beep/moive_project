@@ -11,6 +11,7 @@ import detailRouter from './routes/detail'
 import photosRouter from './routes/photos'
 import cityRouter from './routes/city'
 import loginRouter from './routes/login'
+import cinemaDetailRouter from './routes/CinemaDetail'
 
 const routes = [
   {
@@ -25,10 +26,11 @@ const routes = [
   photosRouter,
   cityRouter,
   loginRouter,
+  cinemaDetailRouter,
 ]
 
 const router = new VueRouter({
-  mode: 'history',
+  mode: 'history', 
   // base: process.env.BASE_URL,
   routes
 })

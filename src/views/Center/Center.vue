@@ -152,7 +152,6 @@ export default {
     exit:function(){
       localStorage.removeItem('_token')
       this.$router.push({path:'login'})
-      // window.location = 'http://10.11.58.168:8080/center'
     }
   },
   beforeDestroy(){

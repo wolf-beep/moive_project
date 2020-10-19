@@ -4,7 +4,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
      state:{
          count:0,
-         city:'地球',
+         city:'上海',
          _token:"",
      },
      mutations:{
