@@ -10,5 +10,8 @@ export let cinemaDetailuri = "/gateway/?k=2596423&cinemaId="
 export let cinemaDetailtwouri = "/gateway/?k=1509604&cinemaId="
 
 
+export let cinemaUri = 'gateway/?k=9363061&cinemaId='
+
+
 export let loginUri = "http://182.92.148.77:3000/api/v1/login"
 export let centerUri = "http://182.92.148.77:3000/api/v1/user_info"

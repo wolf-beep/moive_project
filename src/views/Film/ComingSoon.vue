@@ -1,5 +1,6 @@
 <template>
-    <div>  
+    <div>
+
         <ComingSoonListPage :list="shuju" :type="type" :key="'film' + shuju.length"></ComingSoonListPage>
         <router-view></router-view>
     </div>

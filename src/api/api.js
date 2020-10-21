@@ -11,6 +11,7 @@ import{
     centerUri,
     cinemaDetailuri,
     cinemaDetailtwouri,
+    cinemaUri,
 }from '@/config/url'
 // 请求正在热映列表数据
 export const nowPlayingListData = (page) =>{
@@ -100,3 +101,12 @@ export const cinemaDetailtwo = () =>{
     let cinemaId = localStorage.getItem('cinemaIdData')
     return http.get(cinemaDetailtwouri + cinemaId)
 }
+
+export const cinemaFData = (filmId, showDate) => {
+        http.defaults.headers.info = "cinemaFData"
+        http.defaults.headers.authorization = ""
+        let a = localStorage.getItem('cinemaIdData')
+        let b = localStorage.getItem('filmIde')
+        let c = localStorage.getItem('showdeted')
+        return http.get(cinemaUri + a + '&filmId=' + b + '&date=' + c )
+    }
