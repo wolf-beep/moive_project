@@ -1,6 +1,7 @@
 <template>
     <div>
-        <header class="header">
+        <v-touch v-on:swipeleft="onSwipeLeft" v-on:swiperight="onSwipeRight">
+            <header class="header">
              <div class="left">
                  <div @click="gocity" class="city" data-enter-time="1602497043" data-click-fun="track_f_962415">
                     <span>{{city1}}</span> 
@@ -55,6 +56,8 @@
         </div>
            </div>
         </div>
+        </v-touch>
+        
     </div>
 </template>
 
@@ -88,7 +91,7 @@ export default {
         let res = await cinemaListOneData();
         this.cinemaOne = res.data.data[0] ;
 
-        console.log(this.cinemas);
+        // console.log(this.cinemas);
         
 
         var _this = this;
@@ -147,7 +150,14 @@ export default {
         goDetail:function(cinemaId){
             localStorage.setItem('cinemaIdData',cinemaId)
             this.$router.push({path:'cinemaDetail'})
-        }
+        },
+        onSwipeLeft:function(){
+            this.$router.push({path:'center'})
+        },
+        onSwipeRight:function(){
+            this.$router.push({path:'film'})
+
+        },
     },
 }
 </script>

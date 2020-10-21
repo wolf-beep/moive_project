@@ -2,7 +2,8 @@
 
 <template>
   <div>
-    <div class="main">
+        <v-touch v-on:swiperight="onSwipeRight">
+        <div class="main">
       <div class="center-view">
         <div class="avatar">
           <img v-if="!userInfo.userId"
@@ -126,6 +127,8 @@
         </div>
       </div>
     </div>
+        </v-touch>  
+    
   </div>
 </template>
 
@@ -152,6 +155,9 @@ export default {
     exit:function(){
       localStorage.removeItem('_token')
       this.$router.push({path:'login'})
+    },
+    onSwipeRight:function(){
+      this.$router.push({path:'cinema'})
     }
   },
   beforeDestroy(){

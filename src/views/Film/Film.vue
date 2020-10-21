@@ -1,5 +1,6 @@
 <template>
     <div>  
+
         <FilmListTopNav :class="fixed ? 'fixed' : ''"></FilmListTopNav>
         <router-view></router-view>
     </div>
@@ -25,7 +26,8 @@ export default {
                 this.fixed = false
             }
         },true)
-    }
+    },
+    
 }
 </script>
 <style lang="scss" scoped>

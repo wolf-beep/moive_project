@@ -72,96 +72,17 @@
                                 >
                                     <div
                                         class="swiper-slide swiper-slide-active"
+                                         v-for="(item,index) in cinemaDatatwo" :key="index"
                                     >
-                                        <div class="film-item">
+                                        <div class="film-item" @click="clickId(item.filmId,item.showDate)" >
                                             <div class="img-wrap">
                                                 <img
-                                                    src="https://pic.maizuo.com/usr/movie/fad9f1e9a5c38f3883d7f9b5e561e5fe.jpg"
+                                                    :src="item.poster"
                                                     alt=""
                                                 />
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="swiper-slide swiper-slide-next">
-                                        <div class="film-item">
-                                            <div class="img-wrap">
-                                                <img
-                                                    src="https://pic.maizuo.com/usr/movie/0b4e01c33b555e533cf8aca71b67df1a.jpg"
-                                                    alt=""
-                                                />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="film-item">
-                                            <div class="img-wrap">
-                                                <img
-                                                    src="https://pic.maizuo.com/usr/movie/32c92eaddb6864b656b267da76751b38.jpg"
-                                                    alt=""
-                                                />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="film-item">
-                                            <div class="img-wrap">
-                                                <img
-                                                    src="https://pic.maizuo.com/usr/movie/75d95b53eed62b9df354695a0578fc0c.jpg"
-                                                    alt=""
-                                                />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="film-item">
-                                            <div class="img-wrap">
-                                                <img
-                                                    src="https://pic.maizuo.com/usr/movie/eed45f47017ac50aed3a685b33c3f745.jpg"
-                                                    alt=""
-                                                />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="film-item">
-                                            <div class="img-wrap">
-                                                <img
-                                                    src="https://pic.maizuo.com/usr/movie/d0d73a81cf3883c366870ba0e1a51baa.jpg"
-                                                    alt=""
-                                                />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="film-item">
-                                            <div class="img-wrap">
-                                                <img
-                                                    src="https://pic.maizuo.com/usr/movie/09348aa4f961d2cb7e8f7c1e5f6e4e90.jpg"
-                                                    alt=""
-                                                />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="film-item">
-                                            <div class="img-wrap">
-                                                <img
-                                                    src="https://pic.maizuo.com/usr/movie/bd90f19c4913df9aa62ccd89f92ef474.jpg"
-                                                    alt=""
-                                                />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="film-item">
-                                            <div class="img-wrap">
-                                                <img
-                                                    src="https://pic.maizuo.com/usr/movie/b6ea145c129cbf12a87e7d065dd9f76e.jpg"
-                                                    alt=""
-                                                />
-                                            </div>
-                                        </div>
-                                    </div>
+                                    </div>                                                                                                                                              
                                 </div>
                                 <span
                                     class="swiper-notification"
@@ -170,188 +91,14 @@
                                 ></span>
                             </div>
                         </div>
-                        <div class="film-info">
-                            <div class="film-head">
-                                <span class="film-name">我和我的家乡</span>
-                                <span class="film-score">7.7</span>
-                                <span class="film-score-unit">分</span>
-                            </div>
-                            <div class="film-desc">
-                                剧情|喜剧 | 0分钟 |
-                                宁浩|徐峥|陈思诚|闫非|彭安宇|邓超|俞白眉 | 闫非
-                                彭安宇 宁浩 徐峥 陈思诚
-                            </div>
-                            <img
-                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAYCAMAAAD57OxYAAAAZlBMVEVHcEwZGhseHh4aGh8zMzMZGhsZGhwZGhsfHx8ZGhsbGxsZGhsZGxsZGxsZGxsZGxsbGxsaGhsaGh0aGh0ZGhwbGxsZGhweHh4ZGhsaGh0ZGxsZGxsZGxsZGhsZGxsZGxsaGhwZGhtuA7MxAAAAIXRSTlMA6iE5Bda99xD+OOWenXh6VddWV9BxviLpe7x5jeSBgI/e7hU0AAAAeUlEQVQY023PyRqCMAyFUSilA2VGnBX/939JN01QP7O6Z5ObFGt6FjoPuCjuEBeBvYKvRKGG8iQyZ5iCqPFwtKIxQqsre2BQdV8F7rfgoJh2WAe+yWghjjkPQJ/zHKHLufLg8jmmhDp8vGD+LH1BnKU6wU3vXdOm+Q34ngmHHMc+eAAAAABJRU5ErkJggg=="
-                                width="4px"
-                                height="8px"
-                                alt=""
-                                class="film-more"
-                            />
-                        </div>
-                        <div class="date-list">
-                            <div class="tabs-bar-wrapper dateWrap">
-                                <div class="tabs-bar">
-                                    <ul class="tabs-nav">
-                                        <li
-                                            class="active"
-                                            style="padding: 0px 15px;"
-                                        >
-                                            <span>今天10月19日</span>
-                                        </li>
-                                        <li class="" style="padding: 0px 15px;">
-                                            <span>明天10月20日</span>
-                                        </li>
-                                        <li class="" style="padding: 0px 15px;">
-                                            <span>后天10月21日</span>
-                                        </li>
-                                        <div
-                                            class="tab-ink-bar-wrapper"
-                                            style="transform: translate3d(0%, 0px, 0px); padding: 0px 15px;"
-                                        >
-                                            <span
-                                                class="tab-ink-bar"
-                                                style="width: 89px;"
-                                            ></span>
-                                        </div>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="schedule-list">
-                            <div>
-                                <div class="disable schedule-item">
-                                    <div class="left">
-                                        <div class="start-at">
-                                            15:55
-                                        </div>
-                                        <div class="end-at">
-                                            18:28散场
-                                        </div>
-                                    </div>
-                                    <div class="middle">
-                                        <div class="language">
-                                            国语2D
-                                        </div>
-                                        <div class="hall">
-                                            6号厅
-                                        </div>
-                                    </div>
-                                    <div class="right">
-                                        <div class="buy-ticket">
-                                            停售
-                                        </div>
-                                        <div class="lowest-price">
-                                            <span class="price-icon">￥</span>43
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="schedule-item">
-                                    <div class="left">
-                                        <div class="start-at">
-                                            18:00
-                                        </div>
-                                        <div class="end-at">
-                                            20:33散场
-                                        </div>
-                                    </div>
-                                    <div class="middle">
-                                        <div class="language">
-                                            国语2D
-                                        </div>
-                                        <div class="hall">
-                                            7号VIP厅
-                                        </div>
-                                    </div>
-                                    <div class="right">
-                                        <div class="buy-ticket">
-                                            购票
-                                        </div>
-                                        <div class="lowest-price">
-                                            <span class="price-icon">￥</span>88
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="schedule-item">
-                                    <div class="left">
-                                        <div class="start-at">
-                                            19:00
-                                        </div>
-                                        <div class="end-at">
-                                            21:33散场
-                                        </div>
-                                    </div>
-                                    <div class="middle">
-                                        <div class="language">
-                                            国语2D
-                                        </div>
-                                        <div class="hall">
-                                            6号厅
-                                        </div>
-                                    </div>
-                                    <div class="right">
-                                        <div class="buy-ticket">
-                                            购票
-                                        </div>
-                                        <div class="lowest-price">
-                                            <span class="price-icon">￥</span>53
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="schedule-item">
-                                    <div class="left">
-                                        <div class="start-at">
-                                            20:55
-                                        </div>
-                                        <div class="end-at">
-                                            23:28散场
-                                        </div>
-                                    </div>
-                                    <div class="middle">
-                                        <div class="language">
-                                            国语2D
-                                        </div>
-                                        <div class="hall">
-                                            7号VIP厅
-                                        </div>
-                                    </div>
-                                    <div class="right">
-                                        <div class="buy-ticket">
-                                            购票
-                                        </div>
-                                        <div class="lowest-price">
-                                            <span class="price-icon">￥</span>88
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="schedule-item">
-                                    <div class="left">
-                                        <div class="start-at">
-                                            21:55
-                                        </div>
-                                        <div class="end-at">
-                                            00:28散场
-                                        </div>
-                                    </div>
-                                    <div class="middle">
-                                        <div class="language">
-                                            国语2D
-                                        </div>
-                                        <div class="hall">
-                                            6号厅
-                                        </div>
-                                    </div>
-                                    <div class="right">
-                                        <div class="buy-ticket">
-                                            购票
-                                        </div>
-                                        <div class="lowest-price">
-                                            <span class="price-icon">￥</span>43
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+
+
+                        <nameOne :filmId="filmId" :cinemaDatatwo="cinemaDatatwo"></nameOne>
+
+                        <dataTwo :filmId="filmId" :cinemaDatatwo="cinemaDatatwo" :showDate="showDate"></dataTwo>
+                        
+                        
+
                     </div>
                 </div>
                 <div class="service-info" style="display: none;">
@@ -416,11 +163,16 @@
 import {cinemaDetail,cinemaDetailtwo} from '@/api/api'
 import Swiper from 'swiper';
 import 'swiper/swiper-bundle.min.css';
+import nameOne from '@/components/CinemaOne'
+import dataTwo from '@/components/CinemaTwo'
+
 export default {
     data() {
         return {
             cinemaData:[],
             cinemaDatatwo:[],
+            filmId:'',
+            showDate:'',
         }
     },
     created(){
@@ -432,23 +184,36 @@ export default {
     async mounted() {
         let res = await cinemaDetail()
         this.cinemaData = res.data.data.cinema
-        console.log(this.cinemaData);
+        // console.log(this.cinemaData);
 
         let ret = await cinemaDetailtwo()
         this.cinemaDatatwo = ret.data.data.films
-        console.log(this.cinemaDatatwo);
+        // console.log(this.cinemaDatatwo);
         this.$nextTick(() => {
             var swiper = new Swiper('.swiper-container', {
                 slidesPerView: 4,
                 spaceBetween: 30,
                 centeredSlides: true,
+                slideToClickedSlide: true,
+                centeredSlides: true,
             });
         });
     },
     methods:{
         goback:function(){
             this.$router.go(-1)
+        },
+        clickId:function(filmId,showDate){
+            this.filmId = filmId
+            this.showDate = showDate
+            // localStorage.setItem('filmIde',filmId)
+            // localStorage.setItem('showdeted',showDate[0])
+            
         }
+    },
+    components:{
+        nameOne,
+        dataTwo,
     }
 };
 </script>
@@ -608,247 +373,6 @@ body {
 .swiper-slide-duplicate-active {
     transform: scale(1);
 }
-.cinema-schedule .schedule-wrap .film-info {
-    width: 100%;
-    background: #fff;
-    height: 80px;
-    padding: 15px 0;
-    position: relative;
-}
-.cinema-schedule .schedule-wrap .film-info .film-head {
-    margin-bottom: 10px;
-    text-align: center;
-    line-height: 18px;
-}
-.cinema-schedule .schedule-wrap .film-info .film-head .film-name {
-    font-size: 15px;
-    color: #191a1b;
-    padding-right: 5px;
-}
-.cinema-schedule .schedule-wrap .film-info .film-head .film-score {
-    font-size: 16px;
-    font-style: italic;
-    color: #ffb232;
-}
-.cinema-schedule .schedule-wrap .film-info .film-head .film-score-unit {
-    font-size: 10px;
-    color: #ffb232;
-}
-.cinema-schedule .schedule-wrap .film-info .film-desc {
-    text-align: center;
-    height: 18px;
-    color: #797d82;
-    font-size: 13px;
-    padding: 0 12%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-.cinema-schedule .schedule-wrap .film-info .film-more {
-    position: absolute;
-    right: 15px;
-    top: 0;
-    margin-top: 36px;
-}
-.cinema-schedule .schedule-wrap .film-info:after {
-    content: ' ';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    height: 1px;
-    border-bottom: 1px solid #ededed;
-    color: #ededed;
-    transform-origin: 0 100%;
-    transform: scaleY(0.5);
-}
-.cinema-schedule .schedule-wrap .date-list {
-    width: 100%;
-}
-.tabs-bar-wrapper {
-    position: relative;
-    z-index: 100;
-    width: 100%;
-    overflow-x: hidden;
-    background: #fff;
-}
-.tabs-bar-wrapper .tabs-bar {
-    height: 49px;
-    display: flex;
-    align-items: center;
-    overflow-x: auto;
-    overflow-y: hidden;
-    transition: -webkit-transform 0.2s cubic-bezier(0.35, 0, 0.25, 1);
-    transition: transform 0.2s cubic-bezier(0.35, 0, 0.25, 1);
-    transition: transform 0.2s cubic-bezier(0.35, 0, 0.25, 1);
-    position: relative;
-}
-.tabs-bar-wrapper .tabs-bar .tabs-nav {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    position: relative;
-    width: 100%;
-}
-.tabs-bar-wrapper .tabs-bar .tabs-nav li.active {
-    color: #ff5f16;
-}
-.tabs-bar-wrapper .tabs-bar .tabs-nav li.active {
-    color: #ff5f16;
-}
-.tabs-bar-wrapper .tabs-bar .tabs-nav li {
-    flex-shrink: 0;
-    color: #191a1b;
-    text-align: center;
-    height: 16px;
-    line-height: 16px;
-    font-size: 14px;
-    cursor: pointer;
-}
-.tabs-bar-wrapper .tabs-bar .tabs-nav .tab-ink-bar-wrapper {
-    position: absolute;
-    margin: auto;
-    top: 30px;
-    left: 0;
-    transform: translateZ(0);
-    transition: transform 0.2s cubic-bezier(0.35, 0, 0.25, 1);
-    transition: transform 0.2s cubic-bezier(0.35, 0, 0.25, 1);
-}
-.tabs-bar-wrapper .tabs-bar .tabs-nav .tab-ink-bar-wrapper .tab-ink-bar {
-    border-bottom: 2px solid #ff5f16;
-    border-radius: 20px;
-    display: block;
-    margin: auto;
-}
-.tabs-bar-wrapper .tabs-bar:after {
-    content: ' ';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    height: 1px;
-    border-bottom: 1px solid #ededed;
-    color: #ededed;
-    transform-origin: 0 100%;
-    transform: scaleY(0.5);
-}
-.cinema-schedule .schedule-wrap .schedule-list {
-    min-height: calc(100vh - 44px);
-}
-.cinema-schedule .schedule-wrap .schedule-list .schedule-item {
-    height: 60px;
-    padding: 15px;
-    position: relative;
-    background: #fff;
-}
-.cinema-schedule
-    .schedule-wrap
-    .schedule-list
-    .schedule-item:not(:first-child):before {
-    content: ' ';
-    position: absolute;
-    left: 0;
-    top: 0;
-    right: 0;
-    height: 1px;
-    border-top: 1px solid #ededed;
-    color: #ededed;
-    transform-origin: 0 0;
-    transform: scaleY(0.5);
-}
-.cinema-schedule .schedule-wrap .schedule-list .schedule-item .left {
-    float: left;
-    width: 100px;
-    margin-top: 12px;
-}
-.cinema-schedule .schedule-wrap .schedule-list .schedule-item .left .start-at {
-    font-size: 15px;
-    color: #191a1b;
-}
-.cinema-schedule .schedule-wrap .schedule-list .schedule-item .left .end-at {
-    font-size: 13px;
-    color: #797d82;
-    margin-top: 2px;
-}
-.cinema-schedule .schedule-wrap .schedule-list .schedule-item .middle {
-    float: left;
-    width: calc(100% - 240px);
-}
-.cinema-schedule
-    .schedule-wrap
-    .schedule-list
-    .schedule-item
-    .middle
-    .language {
-    font-size: 15px;
-    color: #191a1b;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    margin-top: 12px;
-}
-.cinema-schedule .schedule-wrap .schedule-list .schedule-item .middle .hall {
-    font-size: 13px;
-    color: #797d82;
-    margin-top: 2px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-.cinema-schedule .schedule-wrap .schedule-list .schedule-item .right {
-    float: right;
-    padding: 10px 0;
-    line-height: 25px;
-    color: #ff5f16;
-    margin-top: 12px;
-}
-.cinema-schedule
-    .schedule-wrap
-    .schedule-list
-    .schedule-item
-    .right
-    .buy-ticket {
-    float: right;
-    height: 25px;
-    width: 50px;
-    border-radius: 2px;
-    position: relative;
-    text-align: center;
-    font-size: 13px;
-}
-.cinema-schedule
-    .schedule-wrap
-    .schedule-list
-    .schedule-item
-    .right
-    .buy-ticket:after {
-    content: ' ';
-    transform: scale(0.5);
-    position: absolute;
-    border: 1px solid #ff5f16;
-    top: -50%;
-    right: -50%;
-    bottom: -50%;
-    left: -50%;
-    border-radius: 4px;
-}
-.cinema-schedule
-    .schedule-wrap
-    .schedule-list
-    .schedule-item
-    .right
-    .lowest-price {
-    float: right;
-    padding-right: 20px;
-    font-size: 15px;
-}
-.cinema-schedule
-    .schedule-wrap
-    .schedule-list
-    .schedule-item
-    .right
-    .lowest-price
-    .price-icon {
-    font-size: 10px;
-}
+
+
 </style>
