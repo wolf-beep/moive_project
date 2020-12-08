@@ -206,8 +206,6 @@ export default {
         clickId:function(filmId,showDate){
             this.filmId = filmId
             this.showDate = showDate
-            // localStorage.setItem('filmIde',filmId)
-            // localStorage.setItem('showdeted',showDate[0])
             
         }
     },
